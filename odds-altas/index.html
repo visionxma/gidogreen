@@ -106,6 +106,7 @@ const CONFIG = {
 
   REDIRECT_URL:    'https://chat.whatsapp.com/HZ1W4DkJYlLHU5BcM0YD1e',
   LEAD_ENDPOINT:   'https://script.google.com/macros/s/AKfycbxAH9M17MpHKPtLjH6M7EMftN4xjM7o5lm1J2CUEPMtCdij8hNA3Vf8S7zrCYuKUqE1yw/exec',
+  LEAD_TOKEN:      'gido_9ce1a13d45fe1e9d94c0b8c7',
   FB_PIXEL_ID:     '',
   ORIGEM:          'gidogreen_odds_altas',
 };
@@ -761,6 +762,7 @@ function openLeadModal(){
     const utms = getUtms();
     const payload = {
       lead,
+      token: CONFIG.LEAD_TOKEN,
       origem: CONFIG.ORIGEM,
       event: 'novo_lead_quiz',
       timestamp: new Date().toISOString(),
@@ -770,12 +772,13 @@ function openLeadModal(){
     try { localStorage.setItem('gido_lead_'+Date.now(), JSON.stringify(payload)); } catch(_){}
     if(CONFIG.LEAD_ENDPOINT){
       try {
-        await fetch(CONFIG.LEAD_ENDPOINT, {
+        fetch(CONFIG.LEAD_ENDPOINT, {
           method:'POST',
+          mode:'no-cors',
           headers:{'Content-Type':'text/plain;charset=utf-8'},
           body: JSON.stringify(payload),
           keepalive: true,
-        });
+        }).catch(function(){});
       } catch(err){ console.warn('lead endpoint error', err); }
     }
     try {
