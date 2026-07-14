@@ -1,0 +1,5 @@
+# Backup do site original + fotos do Drive (não vai pro repositório)
+_original/
+
+# macOS
+.DS_Store
