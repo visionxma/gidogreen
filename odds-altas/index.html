@@ -105,7 +105,7 @@ const CONFIG = {
   LINK_X1:         'https://wa.me/message/YGWQQVHKAOOPN1',
 
   REDIRECT_URL:    'https://chat.whatsapp.com/HZ1W4DkJYlLHU5BcM0YD1e',
-  LEAD_ENDPOINT:   '',
+  LEAD_ENDPOINT:   'https://script.google.com/macros/s/AKfycbxAH9M17MpHKPtLjH6M7EMftN4xjM7o5lm1J2CUEPMtCdij8hNA3Vf8S7zrCYuKUqE1yw/exec',
   FB_PIXEL_ID:     '',
   ORIGEM:          'gidogreen_odds_altas',
 };
@@ -772,7 +772,7 @@ function openLeadModal(){
       try {
         await fetch(CONFIG.LEAD_ENDPOINT, {
           method:'POST',
-          headers:{'Content-Type':'application/json'},
+          headers:{'Content-Type':'text/plain;charset=utf-8'},
           body: JSON.stringify(payload),
           keepalive: true,
         });
