@@ -44,7 +44,7 @@ backups ou fontes não usadas).
 |---|---|---|
 | Google Tag Manager | `<script>` no `<head>` + `<noscript>` no `<body>` | Container `GTM-KXVVC6SC` |
 | Planilha (leads) | `const SHEET_URL` | Google Apps Script (App da Web `/exec`) |
-| Destino pós-formulário (grupo) | `const REDIRECT` | `https://t.me/+-sPaKLmRhK40NTVh` |
+| Destino pós-formulário (grupo) | `const REDIRECT` | `https://w.app/gidogreen` |
 
 - **Meta Pixel (Facebook) removido.** O rastreio fica por conta do GTM — configure
   seus pixels/eventos dentro do container `GTM-KXVVC6SC`.
@@ -56,7 +56,7 @@ backups ou fontes não usadas).
 ### Fluxo do formulário
 1. Clique em **"Entrar no grupo grátis"** → abre o modal com o formulário.
 2. Preenche e-mail + telefone (validação local) → grava na planilha → tela "Vaga Garantida!".
-3. Redireciona automaticamente para o grupo do Telegram (`REDIRECT`).
+3. Redireciona automaticamente para o grupo do WhatsApp (`REDIRECT`).
 
 ## Notas
 
