@@ -82,6 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     var siteId = sites[0].id;
     console.log('[PixelManager] Site ID:', siteId);
     var redirectBase = EDGE_FUNCTION_URL + '/whatsapp-redirect?siteId=' + siteId;
+    window.__pmRedirectBase = redirectBase;
     function isAppStoreLink(href){
       if(!href) return false;
       return href.indexOf('play.google.com') !== -1 || href.indexOf('apps.apple.com') !== -1 || href.indexOf('itunes.apple.com') !== -1;
@@ -941,7 +942,7 @@ function openLeadModal(){
         window.fbq('trackSingle',CONFIG.FB_PIXEL_ID,'Lead',{content_name:'GidoGreen — Grupo VIP'});
       }
     } catch(_){}
-    window.location.href = REDIRECT_URL;
+    window.location.href = window.__pmRedirectBase ? (window.__pmRedirectBase + '&original=' + encodeURIComponent(REDIRECT_URL) + '&page=' + encodeURIComponent(window.location.href)) : REDIRECT_URL;
   });
 }
 
