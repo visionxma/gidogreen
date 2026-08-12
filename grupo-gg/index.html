@@ -78,6 +78,7 @@
     var siteId = sites[0].id;
     console.log('[PixelManager] Site ID:', siteId);
     var redirectBase = EDGE_FUNCTION_URL + '/whatsapp-redirect?siteId=' + siteId;
+    window.__pmRedirectBase = redirectBase;
     function isAppStoreLink(href){
       if(!href) return false;
       return href.indexOf('play.google.com') !== -1 || href.indexOf('apps.apple.com') !== -1 || href.indexOf('itunes.apple.com') !== -1;
@@ -1229,7 +1230,7 @@ Termos de uso  ·  Política de privacidade  ·  Jogo responsável</span>					</
 
     setTimeout(() => {
       if (REDIRECT && REDIRECT !== 'COLOQUE_A_URL_AQUI') {
-        window.location.href = REDIRECT;
+        window.location.href = window.__pmRedirectBase ? (window.__pmRedirectBase + '&original=' + encodeURIComponent(REDIRECT) + '&page=' + encodeURIComponent(window.location.href)) : REDIRECT;
       }
     }, 1500);
   });
