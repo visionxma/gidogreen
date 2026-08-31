@@ -575,6 +575,21 @@ Termos de uso  ·  Política de privacidade  ·  Jogo responsável</span>					</
 						</div>
 					</div>
 				</div>
+<!-- ============================================================================
+     POPUP DE CAPTURA DE LEADS (e-mail + telefone) - DESATIVADO
+     ----------------------------------------------------------------------------
+     O modal NAO foi excluido: continua inteiro logo abaixo (marcacao + script),
+     apenas oculto por CSS e sem nenhum botao que o abra - ou seja, nenhum dado
+     de lead e mais coletado.
+     Para reativar:
+       1) remova este <style id="popup-lead-desativado">;
+       2) restaure o bloco original comentado em "POPUP: abertura desativada",
+          mais adiante nesta pagina, e remova o redirecionamento direto.
+     ============================================================================ -->
+<style id="popup-lead-desativado">
+  /* Mantem o popup de captura de leads fora da pagina (vence o .ativo). */
+  #popup { display: none !important; }
+</style>
 		<div class="elementor-element elementor-element-3760f6d e-flex e-con-boxed e-con e-parent" data-id="3760f6d" data-element_type="container" data-e-type="container" id="popup" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-dac8d4f elementor-widget elementor-widget-html" data-id="dac8d4f" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
@@ -1250,6 +1265,15 @@ Termos de uso  ·  Política de privacidade  ·  Jogo responsável</span>					</
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-c2822cc elementor-widget elementor-widget-html" data-id="c2822cc" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
 					<script>
+/* ============================================================================
+   POPUP: abertura desativada
+   ----------------------------------------------------------------------------
+   O popup de captura de leads foi desligado: os botoes ".bt-popup" agora levam
+   direto para o grupo, com o mesmo destino e a mesma forma de redirecionamento
+   que o modal ja usava no final do fluxo.
+
+   Codigo original preservado abaixo - basta descomentar para voltar atras:
+
     const btPopup = document.querySelectorAll(".bt-popup");
     const popup = document.getElementById("popup");
     const btFechar = document.getElementById("btFechar");
@@ -1267,6 +1291,23 @@ Termos de uso  ·  Política de privacidade  ·  Jogo responsável</span>					</
     }
 
     btFechar.addEventListener("click", fecharPopup);
+   ============================================================================ */
+
+    (function(){
+        var DESTINO = 'https://w.app/gidogreen';
+
+        function irParaGrupo(e){
+            if (e) e.preventDefault();
+            // Mesmo rotacionador/rastreamento que o modal usava.
+            window.location.href = window.__pmRedirectBase
+                ? (window.__pmRedirectBase + '&original=' + encodeURIComponent(DESTINO) + '&page=' + encodeURIComponent(window.location.href))
+                : DESTINO;
+        }
+
+        document.querySelectorAll('.bt-popup').forEach(function(el){
+            el.addEventListener('click', irParaGrupo);
+        });
+    })();
 </script>
 
 
