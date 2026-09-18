@@ -379,16 +379,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </main>
 
 <script>
-  // ==== TROQUE AQUI: seu número de WhatsApp com DDI + DDD, só dígitos ====
-  var WHATSAPP = "5599999999999";
-  // =====================================================================
+  // ==== CONFIG: número do WhatsApp (DDI + DDD, só dígitos) e mensagem do botão ====
+  var WHATSAPP = "5522988435304";
+  var MENSAGEM = "Olá, Gih vim pelo site e quero lucrar junto com você libera meu bilhete blindado\u26BD\uFE0F";
+  // ================================================================================
 
   var opcoes = document.querySelectorAll(".valor");
   var link = document.getElementById("cta-link");
   var valor = "10";
 
   function atualizar() {
-    var texto = "Quero receber meu bilhete de hoje. Vou depositar R$" + valor + ".";
+    var texto = MENSAGEM + " Vou depositar R$" + valor + ".";
     link.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(texto);
   }
 
