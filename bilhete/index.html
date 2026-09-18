@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KXVVC6SC');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bilhete Ganha ou Ganha</title>
+<meta name="description" content="Você deposita R$10 ou R$15, recebe uma odd selecionada e, se não bater, o valor volta no PIX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#04120B;
+    --amarelo:#FFC629;
+    --amarelo-claro:#FFE08A;
+    --amarelo-escuro:#D99B00;
+    --verde:#00C566;
+    --verde-escuro:#0A2E1F;
+    --texto:#F6F4EC;
+    --apagado:#9FB3A6;
+    --tinta:#08170F;
+    --borda:rgba(255,198,41,.32);
+    --borda-fraca:rgba(255,255,255,.12);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--ground);
+    background-image:
+      radial-gradient(760px 420px at 50% -8%, rgba(0,197,102,.16), transparent 68%),
+      radial-gradient(520px 300px at 88% 18%, rgba(255,198,41,.10), transparent 70%);
+    background-repeat:no-repeat;
+    background-attachment:scroll;
+    color:var(--texto);
+    font-family:"Barlow","Helvetica Neue",Arial,sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+  }
+  img{max-width:100%}
+
+  .wrap{
+    max-width:460px;
+    margin:0 auto;
+    padding:
+      calc(18px + env(safe-area-inset-top,0px))
+      calc(16px + env(safe-area-inset-right,0px))
+      calc(26px + env(safe-area-inset-bottom,0px))
+      calc(16px + env(safe-area-inset-left,0px));
+  }
+
+  /* ================= INGRESSO ================= */
+  .ticket{
+    filter:drop-shadow(0 24px 50px rgba(0,0,0,.65)) drop-shadow(0 0 40px rgba(0,197,102,.14));
+  }
+
+  /* ---- talão de cima: a foto ---- */
+  .stub{
+    position:relative;
+    background:linear-gradient(160deg,#0E4630 0%,#062117 100%);
+    border:1px solid var(--borda);
+    border-bottom:none;
+    border-radius:22px 22px 0 0;
+    overflow:hidden;
+  }
+  .stub__photo{position:relative;height:clamp(360px,104vw,440px);overflow:hidden}
+  .stub__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;display:block}
+  .stub__photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(4,18,11,.78) 0%,rgba(4,18,11,.18) 22%,transparent 38%,rgba(6,33,23,.80) 74%,rgba(6,33,23,.96) 93%,rgba(6,33,23,.99) 100%);
+  }
+
+  .chrome{
+    position:absolute;top:0;left:0;right:0;z-index:2;
+    display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+    padding:14px 16px 0;
+  }
+  .selo{
+    display:flex;align-items:center;gap:7px;
+    background:rgba(4,18,11,.62);
+    border:1px solid rgba(255,198,41,.38);
+    border-radius:999px;
+    padding:6px 11px;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--amarelo-claro);
+    backdrop-filter:blur(3px);
+  }
+  .selo i{
+    width:7px;height:7px;border-radius:50%;background:var(--verde);
+    box-shadow:0 0 0 3px rgba(0,197,102,.22);
+    animation:pulso 2s ease-in-out infinite;
+  }
+  @keyframes pulso{0%,100%{opacity:1}50%{opacity:.35}}
+  .meta{text-align:right}
+  .meta span{
+    display:block;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(246,244,236,.45);
+  }
+  .meta strong{
+    display:block;
+    font-family:"Bebas Neue",sans-serif;
+    font-size:17px;letter-spacing:.14em;
+    color:var(--amarelo);
+  }
+
+  .stub__copy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 18px 16px}
+  h1{
+    font-family:"Bebas Neue","Barlow Condensed",sans-serif;
+    font-weight:400;
+    font-size:clamp(38px,11vw,50px);
+    line-height:.9;
+    letter-spacing:.015em;
+    margin:0;
+    text-shadow:0 2px 18px rgba(0,0,0,.75);
+  }
+  h1 .hl{color:var(--amarelo);display:block}
+  .sub{
+    margin:10px 0 0;
+    font-size:14.5px;
+    line-height:1.45;
+    color:rgba(246,244,236,.82);
+    max-width:36ch;
+  }
+
+  /* ---- picote ---- */
+  .perf{
+    position:relative;
+    height:26px;
+    background:linear-gradient(160deg,#0B3524 0%,#061D14 100%);
+    border-left:1px solid var(--borda);
+    border-right:1px solid var(--borda);
+  }
+  .perf::before,.perf::after{
+    content:"";position:absolute;top:50%;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--ground);
+    transform:translateY(-50%);
+  }
+  .perf::before{left:-14px}
+  .perf::after{right:-14px}
+  .perf i{
+    position:absolute;left:22px;right:22px;top:50%;
+    border-top:2px dashed rgba(255,198,41,.30);
+  }
+
+  /* ---- corpo do ingresso ---- */
+  .corpo{
+    background:linear-gradient(180deg,#07271B 0%,#04150E 100%);
+    border:1px solid var(--borda);
+    border-top:none;
+    border-radius:0 0 22px 22px;
+    padding:18px 18px calc(20px + env(safe-area-inset-bottom,0px));
+  }
+
+  .faixa{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:11.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--verde);
+    padding-bottom:16px;
+    border-bottom:1px dashed rgba(255,255,255,.10);
+  }
+  .faixa::before,.faixa::after{content:"◆";font-size:8px;opacity:.7}
+
+  .steps{list-style:none;margin:0;padding:0}
+  .steps li{
+    display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:baseline;
+    padding:14px 0;
+    border-bottom:1px dashed rgba(255,255,255,.10);
+  }
+  .steps li:last-child{border-bottom:0;padding-bottom:4px}
+  .n{
+    font-family:"Bebas Neue",sans-serif;
+    font-size:19px;letter-spacing:.08em;
+    color:var(--amarelo-escuro);
+    font-variant-numeric:tabular-nums;
+  }
+  .t{margin:0;font-size:16.5px;font-weight:500;line-height:1.28}
+  .t strong{font-family:"Bebas Neue","Barlow Condensed",sans-serif;font-weight:400;font-size:1.22em;letter-spacing:.03em;color:var(--amarelo)}
+  .s{margin:2px 0 0;font-size:13.5px;color:var(--apagado)}
+  .steps li.pix .n{color:var(--verde)}
+  .steps li.pix .t strong{color:var(--verde)}
+
+  /* ---- escolha de valor + botão ---- */
+  .cta{margin-top:18px;padding-top:18px;border-top:1px solid var(--borda-fraca)}
+  .cta__titulo{
+    font-family:"Bebas Neue","Barlow Condensed",sans-serif;
+    font-weight:400;font-size:clamp(23px,6.4vw,27px);
+    line-height:1;letter-spacing:.02em;
+    margin:0 0 6px;
+  }
+  .cta__ajuda{margin:0 0 14px;font-size:14px;color:var(--apagado);line-height:1.45}
+  .rotulo{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--apagado);
+    margin:0 0 8px;
+  }
+
+  .valores{display:flex;gap:10px;margin-bottom:14px}
+  .valor{
+    flex:1;
+    background:rgba(4,18,11,.55);
+    border:1px solid var(--borda-fraca);
+    border-radius:12px;
+    padding:13px 8px;
+    color:rgba(246,244,236,.78);
+    font-family:"Bebas Neue","Barlow Condensed",sans-serif;
+    font-size:24px;letter-spacing:.06em;line-height:1;
+    cursor:pointer;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+    transition:border-color .16s ease,background-color .16s ease,color .16s ease;
+  }
+  .valor[aria-checked="true"]{
+    background:rgba(255,198,41,.14);
+    border-color:var(--amarelo);
+    color:var(--amarelo);
+  }
+  .valor:focus-visible,.btn:focus-visible{outline:2px solid var(--amarelo);outline-offset:3px}
+
+  .btn{
+    position:relative;
+    display:block;width:100%;
+    overflow:hidden;
+    text-align:center;text-decoration:none;
+    background:linear-gradient(180deg,var(--amarelo) 0%,var(--amarelo-escuro) 100%);
+    color:var(--tinta);
+    font-family:"Bebas Neue","Barlow Condensed",sans-serif;
+    font-weight:400;
+    font-size:clamp(21px,5.6vw,25px);
+    line-height:1.05;
+    letter-spacing:.04em;
+    padding:16px 14px;
+    border:0;border-radius:13px;
+    box-shadow:0 14px 30px -14px rgba(255,198,41,.75);
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+    transition:transform .14s ease,box-shadow .14s ease;
+  }
+  .btn__brilho{
+    position:absolute;top:0;left:-75%;
+    width:50%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+    animation:brilho 2.6s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes brilho{0%{left:-75%}55%,100%{left:125%}}
+  .btn:active{transform:translateY(1px)}
+  @media (hover:hover) and (pointer:fine){
+    .valor:hover{border-color:var(--amarelo)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 18px 34px -14px rgba(255,198,41,.9)}
+  }
+  .fine{
+    margin:11px 0 0;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--apagado);text-align:center;
+  }
+
+  footer{
+    margin-top:18px;
+    font-size:11.5px;line-height:1.5;
+    color:rgba(159,179,166,.75);
+    text-align:center;
+  }
+
+  @media (max-width:360px){
+    .wrap{padding-inline:12px}
+    .stub__copy{padding:0 14px 14px}
+    .corpo{padding-inline:14px}
+    .selo{font-size:10.5px;padding:5px 9px}
+  }
+
+  /* celular deitado */
+  @media (orientation:landscape) and (max-height:560px){
+    .stub__photo{height:min(80dvh,360px)}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+    .btn__brilho{display:none}
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXVVC6SC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<main class="wrap">
+
+  <article class="ticket">
+
+    <header class="stub">
+      <div class="stub__photo">
+        <img src="assets/hero.jpg" width="1254" height="1254" fetchpriority="high" decoding="async"
+             alt="Analista de apostas com camisa da seleção brasileira no estádio">
+      </div>
+
+      <div class="chrome">
+        <span class="selo"><i aria-hidden="true"></i>Bilhete do dia</span>
+        <span class="meta">
+          <span>Bilhete</span>
+          <strong>Nº 001</strong>
+          <span>1 odd · 1 entrada</span>
+        </span>
+      </div>
+
+      <div class="stub__copy">
+        <h1>Aqui é assim comigo:<span class="hl">você ganha ou ganha.</span></h1>
+        <p class="sub">Se a odd que eu mandar não bater, o seu valor volta para a sua chave PIX.</p>
+      </div>
+    </header>
+
+    <div class="perf" aria-hidden="true"><i></i></div>
+
+    <div class="corpo">
+      <p class="faixa">Garantia no PIX</p>
+
+      <ol class="steps">
+        <li>
+          <span class="n">01</span>
+          <div>
+            <p class="t">Você deposita <strong>R$10 ou R$15</strong></p>
+            <p class="s">Você escolhe o valor. Nada além disso.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <div>
+            <p class="t">Eu te entrego uma <strong>odd selecionada</strong></p>
+            <p class="s">Uma só, escolhida a dedo, direto no seu WhatsApp.</p>
+          </div>
+        </li>
+        <li class="pix">
+          <span class="n">03</span>
+          <div>
+            <p class="t">Se não bater, eu <strong>devolvo via PIX</strong></p>
+            <p class="s">O risco é meu. O lucro é seu.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="cta">
+        <h2 class="cta__titulo">Quero receber meu bilhete agora</h2>
+        <p class="cta__ajuda">Clique no botão abaixo, escolha R$10 ou R$15 e me chame para receber sua ODD.</p>
+
+        <p class="rotulo">Escolha o seu valor</p>
+        <div class="valores" role="radiogroup" aria-label="Escolha o valor">
+          <button type="button" class="valor" id="valor-10" role="radio" aria-checked="true" data-valor="10">R$ 10</button>
+          <button type="button" class="valor" id="valor-15" role="radio" aria-checked="false" data-valor="15">R$ 15</button>
+        </div>
+
+        <a class="btn" id="cta-link" href="#"><span class="btn__brilho" aria-hidden="true"></span>Receber meu bilhete agora</a>
+        <p class="fine">Atendimento direto comigo no WhatsApp</p>
+      </div>
+    </div>
+
+  </article>
+
+  <footer>
+    Proibido para menores de 18 anos. Aposta é entretenimento, não fonte de renda. Aposte com responsabilidade.
+  </footer>
+
+</main>
+
+<script>
+  // ==== TROQUE AQUI: seu número de WhatsApp com DDI + DDD, só dígitos ====
+  var WHATSAPP = "5599999999999";
+  // =====================================================================
+
+  var opcoes = document.querySelectorAll(".valor");
+  var link = document.getElementById("cta-link");
+  var valor = "10";
+
+  function atualizar() {
+    var texto = "Quero receber meu bilhete de hoje. Vou depositar R$" + valor + ".";
+    link.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(texto);
+  }
+
+  opcoes.forEach(function (op) {
+    op.addEventListener("click", function () {
+      opcoes.forEach(function (o) { o.setAttribute("aria-checked", String(o === op)); });
+      valor = op.dataset.valor;
+      atualizar();
+    });
+  });
+
+  atualizar();
+</script>
+</body>
+</html>
